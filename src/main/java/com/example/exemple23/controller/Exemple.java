@@ -1,6 +1,7 @@
 package com.example.exemple23.controller;
 
 import com.example.exemple23.dto.UserInDto;
+import com.example.exemple23.dto.UserInNoteDto;
 import com.example.exemple23.services.UserService;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
@@ -47,5 +48,11 @@ public class Exemple {
 
         UserService service = new UserService();
         return new ResponseEntity(service.toOutDto(dto),HttpStatusCode.valueOf(200) );
+    }
+
+    @PostMapping("avg")
+    public ResponseEntity moyenne(@RequestBody UserInNoteDto dto){
+        UserService service = new UserService();
+        return new ResponseEntity(service.toDto(dto), HttpStatusCode.valueOf(200));
     }
 }
